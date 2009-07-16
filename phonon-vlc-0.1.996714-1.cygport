@@ -1,0 +1,10 @@
+SVN_BRANCH="trunk/playground/multimedia/phonon-backends/vlc"
+SVN_REV=${PV[3]}
+inherit kde4 svn
+
+DESCRIPTION="VLC backend for the Phonon multimedia library"
+HOMEPAGE="http://www.videolan.org/"
+SRC_URI+=" http://websvn.kde.org/*checkout*/trunk/playground/multimedia/phonon-backends/cmake/modules/FindVLC.cmake"
+PATCH_URI="r996714-cmake.patch
+           r996714-cygwin.patch
+           r996714-standalone.patch"

@@ -1,0 +1,39 @@
+--- origsrc/phonon-vlc/vlcloader.cpp	2009-07-16 11:39:56.000000000 -0500
++++ src/phonon-vlc/vlcloader.cpp	2009-07-16 13:11:51.094503400 -0500
+@@ -49,6 +49,11 @@ bool vlcInit()
+         pluginsPath.append("/vlc");
+ #endif
+ 
++#ifdef Q_OS_CYGWIN
++        pluginsPath.chop(4); // "/bin"
++        pluginsPath.append("/lib/vlc");
++#endif
++
+ #ifdef Q_OS_WIN
+         pluginsPath.append("\plugins");
+ #endif
+@@ -107,7 +112,11 @@ QString vlcPath()
+     }
+ 
+     QStringList paths;
+-#if defined(Q_OS_UNIX)
++#if defined(Q_OS_CYGWIN)
++    paths = QString::fromLatin1(qgetenv("PATH"))
++            .split(QLatin1Char(':'), QString::SkipEmptyParts);
++    paths << QLatin1String("/usr/bin") << QLatin1String("/usr/local/bin");
++#elif defined(Q_OS_UNIX)
+     paths = QString::fromLatin1(qgetenv("LD_LIBRARY_PATH"))
+             .split(QLatin1Char(':'), QString::SkipEmptyParts);
+     paths << QLatin1String("/usr/lib") << QLatin1String("/usr/local/lib");
+@@ -125,7 +134,11 @@ QString vlcPath()
+ 
+     vlcLibrary = new QLibrary();
+     foreach(path, paths) {
++#if defined(Q_OS_CYGWIN)
++        vlcLibrary->setFileName(path + QDir::separator() + "cygvlc-2");
++#else
+         vlcLibrary->setFileName(path + QDir::separator() + "libvlc");
++#endif
+ 
+         if (vlcLibrary->resolve("libvlc_exception_init")) {
+             return path;

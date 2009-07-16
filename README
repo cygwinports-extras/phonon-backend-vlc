@@ -1,0 +1,60 @@
+phonon-vlc
+------------------------------------------
+VLC backend for the KDE Phonon multimedia library
+
+Runtime requirements:
+  cygwin-1.7.0-51
+  libgcc1-4.3.2-2
+  libphonon4-4.3.1-2
+  libQtCore4-4.5.2-1
+  libQtGui4-4.5.2-1
+  libstdc++6-4.3.2-2
+  libvlc2-1.0.0-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  automoc4-0.9.88-10
+  binutils-20080624-2
+  cmake-2.6.4-10
+  cygport-0.9.8-1
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  libkdecore5-devel-4.2.4-1
+  make-3.81-2
+
+Canonical website:
+  http://www.videolan.org/
+
+Canonical download:
+  http://websvn.kde.org/trunk/playground/multimedia/phonon-backends/vlc/
+
+-------------------------------------------
+
+Build instructions:
+  unpack phonon-vlc-0.1.996714-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./phonon-vlc-0.1.996714-X.cygport all
+
+This will create:
+  /usr/src/phonon-vlc-0.1.996714-X-src.tar.bz2
+  /usr/src/phonon-vlc-0.1.996714-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/lib/kde4/plugins/phonon_backend/phonon_vlc.dll
+  /usr/share/kde4/services/phononbackends/vlc.desktop
+
+------------------
+
+Port Notes:
+
+----- version 0.1.996714-1 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/
