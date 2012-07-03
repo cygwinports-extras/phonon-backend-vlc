@@ -2,5 +2,5 @@ inherit kde4
 
 DESCRIPTION="VLC backend for the Phonon multimedia library"
 
-SRC_URI="mirror://kde/stable/phonon/${PN}/${PV}/${P}.tar.bz2"
+CXXFLAGS+=" -I/usr/include/kde4/KDE"
 #PATCH_URI="0.3.2-ansi.patch"
