@@ -1,12 +1,9 @@
 inherit kde4
 
 NAME="phonon-backend-vlc"
-VERSION=0.6.2
+VERSION=0.8.2
 RELEASE=1
 CATEGORY="Audio KDE Video"
 SUMMARY="VLC backend for Phonon"
 DESCRIPTION="VLC backend for the KDE Phonon multimedia library"
-SRC_URI="mirror://kde/stable/phonon/${NAME}/${VERSION}/${NAME}-${VERSION}.tar.xz"
-
-CXXFLAGS+=" -I/usr/include/kde4/KDE"
-#PATCH_URI="0.3.2-ansi.patch"
+SRC_URI="mirror://kde/stable/phonon/${NAME}/${VERSION}/src/${NAME}-${VERSION}.tar.xz"
