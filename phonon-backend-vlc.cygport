@@ -2,7 +2,7 @@ inherit kde4
 
 NAME="phonon-backend-vlc"
 VERSION=0.8.2
-RELEASE=1
+RELEASE=2
 CATEGORY="Audio KDE Video"
 SUMMARY="VLC backend for Phonon"
 DESCRIPTION="VLC backend for the KDE Phonon multimedia library"
